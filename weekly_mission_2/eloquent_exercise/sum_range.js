@@ -14,17 +14,24 @@ The function call range(1, 10, 2) should return [1, 3, 5, 7, 9]. Make sure it al
 negative step values so that range(5, 2, -1) produces [5, 4, 3, 2].
 */
 
-//Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.
-function rango(inicio, fin){
-    const array=[];    
+function rango1(inicio, fin, step){
+    const array=[];
     for (let index = inicio; index <= fin; index++) {
         array.push(index);                
     }
-    return array;
+    if(step!=null && inicio==1){
+        for (let index = inicio; index <= fin; index=index+step) {
+            array.push(index);
+        }
+        return array;
+    }else{
+        for (let index = inicio; index >= fin; index=index+step) {
+            array.push(index);
+        }
+        return array;
+    }
 }
 
-
-//Next, write a sum function that takes an array of numbers and returns the sum of these numbers. 
 function suma(arreglo){
     let acumulador=0;
     for (let index = 0; index < arreglo.length; index++) {
@@ -34,6 +41,6 @@ function suma(arreglo){
 }
 
 let arreglo=[1,2,3];
-console.log(rango(1, 10));
-console.log(rango(5,2,-1));
+console.log(rango1(1, 10,undefined));
+console.log(rango1(5,2,-1));
 console.log(suma(rango(1, 10)));
