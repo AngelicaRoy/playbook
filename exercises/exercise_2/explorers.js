@@ -60,21 +60,31 @@ const explorers = [
 ]
 
 //1. Imprime el nombre (propiedad name) de cada explorer en la lista, usa FOR EACH
-explorers.forEach((explorers)=>console.log(explorers.name));
+const name_explorer=explorers.forEach((explorers)=>console.log(explorers.name));
+console.log(name_explorer);
 //2. Imprime el stack de cada explorer, usa FOR EACH
-explorers.forEach((explorers)=>console.log(explorers.name,explorers.stack));
-//3. Crea una nueva lista con las listas de stacks de 
-//cada explorer, usa MAP
-explorers.map(explorers.forEach((explorers)=>console.log(explorers.stack)));
-//4. Obtén la lista de explorers que tengan en su stack 
-//"js", usa FILTER (para validar un elemento en un lista 
-//se usa el método includes)
-
+const stack_explorer=explorers.forEach((explorers)=>console.log(explorers.name,explorers.stack));
+console.log(stack_explorer);
+//3. Crea una nueva lista con las listas de stacks de cada explorer, usa MAP
+const list_stack_explorer=explorers.map(explorers.forEach((explorers)=>console.log(explorers.stack)));
+console.log(list_stack_explorer);
+//4. Obtén la lista de explorers que tengan en su stack "js", usa FILTER (para validar un elemento en un lista se usa el método includes)
+const stack_js=explorers.filter((explorers)=>explorers.stack.includes("js"))
+console.log(stack_js)
 //5.Busca el primer explorer que sea de la CDMX, usa FIND
-explorers.find(cities=>cities.city == "CDMX")
+const ft_explorer=explorers.find(explorers=>explorers.city == "CDMX")
+console.log(ft_explorer);
 //6.Obtén la suma de todos los exercises_completed, usa REDUCE
-
+const sum_exercises=explorers.reduce(
+  (sum, explorers)=>(sum+=explorers.exercises_completed),0
+);
+console.log(sum_exercises);
 //7.Obtén la validación si al menos uno de los explorers tiene la propiedad exercisesFinished en 
 //frontend como true, usa SOME
-
+const finishFront = explorers.some(
+  (res) => res.missions.frontend.exercisesFinished === true
+);
+console.log(finishFront);
 //8.Obtén la validación si todos los explorers tienen la propiedad isFinished del onboarding como true. Usa EVERY.
+const finishOnBoarding=explorers.every((isFinished)=>isFinished===true)
+console.log(finishOnBoarding);
